@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8">
   <title>Price Calculator</title>
   <style>
     body {
@@ -38,6 +39,15 @@
     form {
       max-width: 400px;
     }
+
+    #gifContainer {
+      margin-top: 1em; /* 1 saut de ligne visuel */
+    }
+
+    #gifContainer img {
+      max-width: 100%;
+      height: auto;
+    }
   </style>
 </head>
 <body>
@@ -51,10 +61,17 @@
   <form id="budget" action="javascript:calculatePrice()">
     <label for="salary">What annual salary seems suitable for you?</label><br>
     <input type="text" id="salary" name="salary"/><br>
+
     <label for="days">How many days do you think it will take you to make the website?</label><br>
     <input type="text" id="days" name="days"/><br>
+
     <input type="submit" value="Calculate your price!"><br>
-    <label id="finalPrice"> ??? </label>
+
+    <label id="finalPrice"> ??? </label><br>
+
+    <div id="gifContainer">
+      <img src="https://i.kym-cdn.com/photos/images/newsfeed/002/724/346/81e.gif" alt="fun gif">
+    </div>
   </form>
 </div>
 
