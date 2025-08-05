@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Price Calculator</title>
+  <style>
+    body {
+      background-color: #000; /* fond noir */
+      color: #fff;            /* texte blanc */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;  /* centre verticalement */
+      align-items: center;      /* centre horizontalement */
+      height: 100vh;            /* prend toute la hauteur de la fenêtre */
+      margin: 0;
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+
+    input[type="text"], input[type="submit"] {
+      padding: 10px;
+      margin-top: 5px;
+      margin-bottom: 15px;
+      border: none;
+      border-radius: 5px;
+      font-size: 1em;
+    }
+
+    input[type="submit"] {
+      background-color: #444;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #666;
+    }
+
+    form {
+      max-width: 400px;
+    }
+  </style>
+</head>
+<body>
+
+<div>
+  <h1>How much to charge?</h1>
+  <p>If you were a freelance web designer, how much should you charge for a website? Fill out the form and find out!</p>
+</div>
+
+<div>
+  <form id="budget" action="javascript:calculatePrice()">
+    <label for="salary">What annual salary seems suitable for you?</label><br>
+    <input type="text" id="salary" name="salary"/><br>
+    <label for="days">How many days do you think it will take you to make the website?</label><br>
+    <input type="text" id="days" name="days"/><br>
+    <input type="submit" value="Calculate your price!"><br>
+    <label id="finalPrice"> ??? </label>
+  </form>
+</div>
+
+<script>
+  function calculatePrice() {
+    var s = document.getElementById("salary").value;
+    var d = document.getElementById("days").value;
+    let finalPrice = 0;
+    let dailyRate = s / 365;
+    finalPrice = dailyRate * d;
+    document.getElementById("finalPrice").innerHTML = Math.round(finalPrice) + " €";
+  }
+</script>
+
+</body>
+</html>
